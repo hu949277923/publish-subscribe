@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/common.min_ae44ba5efe.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="g-wrapper floors priceQuotes">
+    <div class="priceQuotes-content clearfix">
+        <div class="tabBar fl">
+            <div class="tabBar-item">
+                <!-- <a href="javascript:;" class="tabBar-item-unit tabBar-item-unit-current">太仓</a>
+                <a href="javascript:;" class="tabBar-item-unit">岚山</a>
+                <a href="javascript:;" class="tabBar-item-unit">钦州</a>
+                <a href="javascript:;" class="tabBar-item-unit">满洲里</a>
+                <a href="javascript:;" class="tabBar-item-unit">绥芬河</a>
+                <a href="javascript:;" class="tabBar-item-unit">二连浩特</a> -->
+            </div>
+            <div class="tabBar-content">
+                <ul class="tabBar-content-unit clearfix">
+                    <!-- <li class="odd">
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time fr">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="odd">
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time fr">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="odd last">
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="last">
+                        <div class="info">
+                            <h3>辐射松原木（4m，中A） <span class="time fr">01/11</span></h3>
+                            <p>
+                                <span class="priceKey">价格</span>
+                                <span class="priceVal">￥2800.00/吨</span>
+                                <span class="riseRatio up">+99%</span>
+                                <span class="rise down">-8502</span>
+                            </p>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="chart fr">
+            <div class="g-row clearfix mt20 mb20">
+
+                <select class="g-select fl w120 ml30 clearLh" id="area">
+                    <option value="">请选择</option>
+
+                    <option value="2">北京市</option>
+
+                    <option value="3">天津市</option>
+
+                    <option value="4">河北省</option>
+
+
+                </select>
+
+                <select class="g-select fl w140 clearLh ml20" id="category">
+                    <option value="">请选择</option>
+
+                    <option value="3">天津市</option>
+
+                    <option value="4">河北省</option>
+
+                </select>
+
+            </div>
+            <div  id="chart" class="chart-map"></div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="tpl-priceQuotes-item">
+  {{ each areaList as item i }}
+  <a href="javascript:;" class="tabBar-item-unit {{ if i == currIndex }}tabBar-item-unit-current{{ /if }}">{{ item.areaName }}</a>
+  {{ /each }}
+</script>
+<script type="text/template" id="tpl-priceQuotes-content">
+  <ul class="tabBar-content-unit clearfix">
+      {{ each typeList as item i }}
+      <li class="{{ if i%2==0}}odd {{/if}}">
+          <div class="info">
+              <h3>{{ item.typeName }} <span class="time">{{ item.time }}</span></h3>
+              <p>
+                  <span class="priceKey">价格</span>
+                  <span class="priceVal">￥{{ item.price }}/吨</span>
+                  <span class="riseRatio up">{{ item.percentage }}</span>
+                  <span class="rise down">{{ item.priceSpread }}</span>
+              </p>
+          </div>
+      </li>
+      {{ /each }}
+  </ul>
+</script>
+<script type="text/template" id="tpl-area-select">
+  {{ each areaList as item i }}
+  <option value="{{item.areaCode}}" {{ if i == currIndex }}selected{{/if }}>{{item.areaName}}</option>
+  {{ /each }}
+</script>
+<script type="text/template" id="tpl-category-select">
+  {{ each typeList as item i }}
+  <option value="{{item.typeCode}}">{{item.typeName}}</option>
+  {{ /each }}
+</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/template.js"></script>
+<script src="scripts/echarts.common.min.js"></script>
+<script src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "pubsub",
+  "version": "0.0.1",
+  "description": "基于发布订阅模式实现的一个demo，欢迎指出",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bill <hubinbin@99114.com> (https://github.com/hu949277923)",
+  "license": "MIT"
+}

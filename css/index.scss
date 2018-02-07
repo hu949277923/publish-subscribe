@@ -1,0 +1,181 @@
+//.hm-homePage .lunbo {
+//  height: 428px;
+//}
+//$mainColor: #009833;
+//$twoColor: #fff;
+//$threeColor: #333;
+//$fourColor: #666;
+//$fiveColor: #eee;
+//@mixin setEllipsis {
+//  overflow: hidden;
+//  text-overflow: ellipsis;
+//  white-space: nowrap;
+//}
+@import "./themes";
+@import "./mixin";
+.hm-homePage {
+  .find-goods {
+    .consult {
+      width: 240px;
+      height: 386px;
+      background-color: $twoColor;
+      position: absolute;
+      right: 0;
+      top: -408px;
+      .topTitle {
+        height: 38px;
+        line-height: 38px;
+        color: $threeColor;
+        font-size: 18px;
+        /*font-weight: bold;*/
+        margin-top: 20px;
+        span {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          display: inline-block;
+          margin-right: 10px;
+          background: #ff6b00;
+          width: 3px;
+          height: 16px;
+        }
+      }
+      .form-submit {
+        padding: 0 20px;
+        textarea {
+          margin: 10px 0;
+          border: 1px solid #dddddd;
+          width: 188px;
+          height: 78px;
+          padding: 5px;
+          border-radius: 10px;
+        }
+        img{
+          width: 40px;
+          height: 30px;
+          margin-left: 10px;
+        }
+        input[type=text] {
+          border-radius: 0;
+          float: right;
+        }
+        label.form-prompt {
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+        }
+      }
+      .findPur {
+        width:200px;
+        height: 34px;
+        margin: 0 auto;
+      }
+    }
+
+  }
+}
+
+
+
+.priceQuotes {
+  &-content {
+    .tabBar {
+      width: 698px;
+      height: 330px;
+      border: 1px solid #ccc;
+      border-bottom: 0;
+      &-item {
+        height: 50px;
+        background-color: $fiveColor;
+        &-unit {
+          display: inline-block;
+          padding: 0 20px 0 30px;
+          line-height: 50px;
+          color: $threeColor;
+          font-weight: bold;
+          &-current, &:hover {
+            color: $mainColor;
+          }
+        }
+      }
+      &-content {
+        &-unit {
+          li {
+            float: left;
+            overflow: hidden;
+            width: 349px;
+            height: 93px;
+            border-bottom: 1px solid #ccc;
+            &.odd {
+              width: 348px;
+              border-right: 1px solid #ccc;
+            }
+            &.last {
+              border-bottom: 0;
+            }
+            .info {
+              padding: 10px 38px 0 20px;
+              line-height: 36px;
+              font-size: 16px;
+              span {
+                display: inline-block;
+                @include setEllipsis;
+              }
+              h3 {
+                position: relative;
+                @include setEllipsis;
+                color: $threeColor;
+                padding-right: 40px;
+                .time {
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                }
+              }
+              p {
+                .priceKey, .priceVal {
+                  color: $fourColor;
+                }
+                .priceVal {
+                  width: 120px;
+                }
+                .rise {
+                  width: 75px;
+                  float: right;
+                }
+                .riseRatio {
+                  width: 50px;
+                  text-align: center;
+                  float: right;
+                }
+                .up {
+                  color: #ff5a62;
+                }
+                .down {
+                  color: #24bd64;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .chart {
+      position: relative;
+      width: 478px;
+      height: 330px;
+      border: 1px solid #ccc;
+      .g-row {
+        position: relative;
+        z-index: 9;
+      }
+      &-map {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 458px;
+        height: 310px;
+      }
+    }
+  }
+}
